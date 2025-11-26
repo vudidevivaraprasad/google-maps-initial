@@ -19,6 +19,8 @@
     [center]="center"
     [zoom]="zoom"
     (mapClick)="mapClick($event)"
+    (mapDragstart)="onUserMove()"
+    (mapZoomChanged)="onUserMove()"
     >
     @if (livelocation.lat) {
       <map-marker class="livelocation"
@@ -34,10 +36,12 @@
       </map-marker>
     }
 
-    <p class="text-danger" style="position: absolute;z-index: 10;top: 17%;left: 5%;">
+    <p *ngIf="livelocation.lat" class="text-danger" style="position: absolute;z-index: 10;top: 17%;left: 5%;">
       {{livelocation.lat}}
       {{livelocation.lng}}
     </p>
+
+    <button (click)="userLiveDirectionsBtnClick()" style="bottom: 1%;left: 1%;" class="btn btn-primary position-absolute">Start</button>
 
   </google-map>
 </div>

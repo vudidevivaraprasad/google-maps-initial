@@ -25,6 +25,7 @@ export class Home implements AfterViewInit {
   zoom = 12;
   time:string = '';
   distance:string = '';
+  userIneractingMaps:boolean=false;
 
   constructor(private zone:NgZone,private directionservice:MapDirectionsService){
         this.getlivelocation()
@@ -68,7 +69,7 @@ export class Home implements AfterViewInit {
             lng: pos.coords.longitude
           }
           // this.mapRef.googleMap?.panTo(this.livelocation);
-          this.searhcedpos.lat?this.directions(this.searhcedpos):''
+          this.searhcedpos.lat && !this.userIneractingMaps?this.directions(this.searhcedpos):''
 
           console.log("position",pos.coords.longitude,pos.coords.altitude)
           console.log("livelocation",this.livelocation)
@@ -151,5 +152,13 @@ export class Home implements AfterViewInit {
   //     }
   //   )
   // }
+
+  onUserMove(){
+    this.userIneractingMaps = true
+  }
+
+  userLiveDirectionsBtnClick(){
+    this.userIneractingMaps = false
+  }
 
 }
