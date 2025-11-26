@@ -11,6 +11,7 @@
       <!-- @if (distance) { -->
         <p *ngIf="distance">Distance {{distance}}</p>
       <!-- } -->
+
   </div>
   <google-map #mapRef
     height="90%"
@@ -32,7 +33,12 @@
         title="Marked location">
       </map-marker>
     }
-    
+
+    <p class="text-danger" style="position: absolute;z-index: 10;top: 17%;left: 5%;">
+      {{livelocation.lat}}
+      {{livelocation.lng}}
+    </p>
+
   </google-map>
 </div>
 
