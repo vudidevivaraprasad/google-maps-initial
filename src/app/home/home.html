@@ -25,6 +25,7 @@
     @if (livelocation.lat) {
       <map-marker class="livelocation"
         [position]="livelocation"
+        [icon]="liveMarker"
         title="You are here">
       </map-marker>
     }
@@ -33,6 +34,14 @@
       <map-marker class="markedlocation"
         [position]="markerdlocaton"
         title="Marked location">
+      </map-marker>
+    }
+
+    @if (searhcedpos.lat) {
+      <map-marker class="destinationlocation"
+        [position]="searhcedpos"
+        [icon]="destionMarker"
+        title="Destination location">
       </map-marker>
     }
 
