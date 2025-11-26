@@ -5,12 +5,13 @@
       #searchBox
       placeholder="Search Places"
       class="search-box form-control" />
-      <!-- @if (time) { -->
-        <p *ngIf="time">Duration {{time}}</p>
-      <!-- } -->
-      <!-- @if (distance) { -->
-        <p *ngIf="distance">Distance {{distance}}</p>
-      <!-- } -->
+      
+      @if (time) {
+          <p class="fw-bold text-success m-0 mx-2 p-0 text-nowrap">{{time}}</p>
+        }
+        @if (distance) {
+          <span class="fw-bold text-success text-nowrap mx-2">{{distance}}</span>
+        }
 
   </div>
   <google-map #mapRef
@@ -50,7 +51,7 @@
       {{livelocation.lng}}
     </p>
 
-    <button (click)="userLiveDirectionsBtnClick()" style="bottom: 1%;left: 1%;" class="btn btn-primary position-absolute">Start</button>
+    <button (click)="userLiveDirectionsBtnClick()" style="z-index: 100;bottom: 1%;left: 1%;" class="btn btn-primary position-absolute">Start</button>
 
   </google-map>
 </div>
