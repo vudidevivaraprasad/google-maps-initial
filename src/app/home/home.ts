@@ -67,7 +67,8 @@ export class Home implements AfterViewInit {
             lat: pos.coords.latitude,
             lng: pos.coords.longitude
           }
-          this.mapRef.googleMap?.panTo(this.livelocation);
+          // this.mapRef.googleMap?.panTo(this.livelocation);
+          this.searhcedpos.lat?this.directions(this.searhcedpos):''
 
           console.log("position",pos.coords.longitude,pos.coords.altitude)
           console.log("livelocation",this.livelocation)
