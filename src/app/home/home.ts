@@ -188,6 +188,7 @@ export class Home implements AfterViewInit {
   }
 
   onUserMove(){
+    this.initailliveshow = false
     this.userIneractingMaps = true
   }
 
